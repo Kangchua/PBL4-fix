@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/identification.css') }}">
+    <title>Nhận Diện</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" crossorigin=""></script>
+</head>
+<body>
+    <h2>Nhận Diện</h2>
+    <div class="container">
+        {% if image_path %}
+            <img src="{{ url_for('static', filename='' + image_path) }}" alt="Description of image" class="identification-image">
+        {% else %}
+            <p>Không tìm thấy ảnh.</p>
+        {% endif %}
+        <div id="map"></div>
+    </div>
+    <p>Tọa độ: <span id="coordinates">X: , Y: </span></p>
+
+    <script src="{{ url_for('static', filename='js/identification.js') }}" defer></script>
+    <script>
+        // Initialize map
+        var map = L.map('map').setView([16.0544, 108.2022], 13); // Centered on Đà Nẵng
+
+        // Add a tile layer to the map
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Placeholder for coordinates from your identification.js
+        var coordinates = [16.0544, 108.2022]; // Example coordinates
+        var marker = L.marker(coordinates).addTo(map)
+            .bindPopup('Detected coordinates')
+            .openPopup();
+
+        // Update coordinates display
+        document.getElementById('coordinates').textContent = `X: ${coordinates[0]}, Y: ${coordinates[1]}`;
+    </script>
+</body>
+</html>

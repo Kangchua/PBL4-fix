@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nhận Diện và Lưu Trữ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/left-content.css') }}">
+</head>
+<body>
+    <nav>
+        <ul class="navbar">
+            <li><a href="{{ url_for('analysis') }}" target="sidebar">Phân Tích</a></li>
+            <li><a href="{{ url_for('identification') }}" target="sidebar">Nhận Diện</a></li>
+            <li><a href="{{ url_for('storage') }}" target="sidebar">Lưu Trữ</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

@@ -1,0 +1,31 @@
+.sidebar {
+    background-color: #f0f0f0; /* Light background color for the sidebar */
+    padding: 20px; /* Padding inside the sidebar */
+    border-right: 2px solid #ccc; /* Right border for visual separation */
+    height: 100%; /* Full height */
+    width: 200px; /* Fixed width */
+    position: fixed; /* Fixed position */
+}
+
+.sidebar h2 {
+    margin-top: 0; /* Remove top margin */
+}
+
+.sidebar-nav {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+}
+
+.sidebar-nav li {
+    margin: 10px 0; /* Space between items */
+}
+
+.sidebar-nav a {
+    text-decoration: none; /* Remove underline */
+    color: #333; /* Text color */
+    transition: color 0.3s; /* Transition effect */
+}
+
+.sidebar-nav a:hover {
+    color: #4CAF50; /* Change color on hover */
+}
